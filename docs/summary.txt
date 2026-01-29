@@ -1,0 +1,37 @@
+Here is a summary of the Python scripts in the specified directories:
+
+**Location: data/**
+
+- **dataset.py**: Defines a PyTorch `Dataset` class named `SignLanguageDataset`. This class is responsible for loading the pre-processed sign language data (keypoints stored in .npy files) for both words (WLASL) and letters (ASL). It handles padding/cropping sequences to a fixed length and applies data augmentation during training.
+
+**Location: inference/**
+
+- **ASL_model_video_demo.py**: A demonstration script that processes a sequence of static images, each containing an ASL letter. It uses a pre-trained model to recognize the letter in each image and combines them to spell out a word.
+
+- **final_pipeline_demo.py**: An end-to-end pipeline that takes a sequence of video files as input. It first uses a vision model (ST-GCN) to recognize the gloss (word/sign) in each video. It then passes this sequence of glosses to a Sign Language Model (SLM) to translate them into a coherent English sentence.
+
+- **realtime_demo.py**: A real-time demonstration that captures video from a webcam. It uses a sliding window of frames to predict WLASL signs. The script also attempts to detect non-manual markers, like raised eyebrows, to identify questions.
+
+- **realtimedemo_unifiedASL.py**: A more advanced real-time system that uses a unified model for both words and letters. It features "rest pose" detection to automatically segment sentences (recognizing when a user finishes a sign). It also includes a facial calibration step to more accurately detect non-manual markers for questions.
+
+- **realtimev2.py**: An enhanced version of the real-time system that adds text-to-speech (TTS) functionality to speak the translated sentences aloud. It includes the rest pose and question detection features and a placeholder for a Sign Language Model (SLM) to improve translation fluency.
+
+- **video_demo_v2.py**: A debugging script for running inference on a single video file. It contains several adjustable toggles (e.g., for mirroring video or removing depth data) to test how different pre-processing steps affect the model's prediction confidence.
+
+- **video_test_demo.py**: A debugging tool designed to test the model's prediction on a single, specific video. It runs the full data extraction and pre-processing pipeline and outputs the model's top 3 predictions and their confidence levels, which is useful for fine-tuning and verification.
+
+- **videodemoWLASL.py**: A demonstration script that processes a queue of video files containing WLASL signs. It predicts the word in each video and concatenates them to form a sentence.
+
+**Location: results/**
+
+- **evaluate_ASL.py**: A script to evaluate the performance of the model trained on ASL letters. It loads the test set, runs inference, and computes key metrics such as accuracy, precision, recall, and F1-score. It also generates and saves a confusion matrix image.
+
+- **evaluate_WLASL.py**: A script to evaluate the performance of the model trained on the WLASL-100 dataset. Similar to the ASL evaluation script, it calculates performance metrics and creates a confusion matrix for the top classes.
+
+- **plot_asl_curve.py**: A utility script that reads training logs from a text file. It parses the epoch-by-epoch loss and accuracy, then uses matplotlib to plot and save the training curves as images.
+
+**Location: training/**
+
+- **train_asl_letters.py**: The script for training the ST-GCN model from scratch specifically on the ASL letters dataset. It handles data loading, model initialization, and the main training loop, saving the best model based on its performance.
+
+- **train_stgcn.py**: The main training script for the unified model. It loads the combined dataset of both WLASL words and ASL letters, splits the data into training and validation sets, and trains the ST-GCN model. It saves the model with the best validation accuracy.
