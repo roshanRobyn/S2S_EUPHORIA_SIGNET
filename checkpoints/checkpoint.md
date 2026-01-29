@@ -1,0 +1,2 @@
+since .pth files take forever to load giving the link to the gdrive folder here
+https://drive.google.com/drive/folders/1rfOAP_g7ycf1_jSoLgPj9hXw4VbCCijR?usp=sharing 
