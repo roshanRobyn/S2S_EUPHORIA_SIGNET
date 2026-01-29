@@ -116,7 +116,7 @@ We utilized a **Split-Dataset Strategy** to solve class imbalance and confusion:
 ## 👥 Team
 * **Roshan Robin** - AI Engineer & Architecture
 * **Jayalakshmy Jayakrishnan** - Data Processing & Evaluation
-* **Nima Fathima** - Frontend & Integration
+* **Nima Fathima** - Data Processing & Evaluation
 * **Sakhil N Maju** - Frontend & Integration
 ---
 
