@@ -87,11 +87,11 @@ We evaluated the system on a held-out test set (20% split) using an ASUS TUF A15
 
 ## 💻 Usage / Demos
 
-### 1. The "Final Pipeline" Demo (Words + Grammar)
+### The "Final Pipeline" Demo (Words + Grammar)
 Runs the full stack: Video -> Gloss -> SLM Correction.
 
 ```bash
-python inference/final_pipeline.py
+python inference/final_pipeline_demo.py
 ```
 * **Input:** Sequence of videos (e.g., `who.mp4`, `eat.mp4`, `now.mp4`).
 * **Output:** `[SLM]: Who is eating now?`
